@@ -9,14 +9,17 @@ class HangpersonGame
 
   # Get a word from remote "random word" service
 
-  # def initialize()
-  # end
-  
-  def initialize(word)
-    @word = word
+  def initialize()
+    @word = get_random_word
     @guesses = ''
     @wrong_guesses = ''
   end
+  
+#  def initialize(word)
+#    @word = word
+#    @guesses = ''
+#    @wrong_guesses = ''
+#  end
 
   def self.get_random_word
     require 'uri'
@@ -77,8 +80,7 @@ class HangpersonGame
  
 end
 
-#game = HangpersonGame.new('foobar')
-#game.guess('')
-#game.guess('%')
-#game.guess(nil)
+game = HangpersonGame.new()
+
+puts games.word
 

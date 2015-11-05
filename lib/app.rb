@@ -48,6 +48,8 @@ class HangpersonApp < Sinatra::Base
     # If player loses (all guesses used), do the 'lose' action instead.
     # Otherwise, show the contents of the 'show.erb' (main game view) template.
 
+
+
   end
   
   get '/win' do
@@ -55,6 +57,12 @@ class HangpersonApp < Sinatra::Base
     #  If player tries to cheat, they should be shown the main game view instead.  (And
     #  you can optionally supply a "No cheating!" messaage.)
     # If they really did win, show the 'win' view template.
+
+    if @game.check_win_or_lose == :win
+      erb :win
+    else
+      redirect '/show'
+    end
     
   end
   
